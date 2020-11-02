@@ -48,10 +48,10 @@ public class SuperArray{
 
   public String toString() {
 		String result = "[ ";
-		for (int i = 0; i < size; i++)
-			result += data[i] + " ";
+		for (int i = 0; i < size; i++){
+		result += data[i] + " ";
 		result += "]";
-
+  }
 		return result;
 	}
 }
