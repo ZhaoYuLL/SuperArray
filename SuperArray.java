@@ -17,4 +17,11 @@ public class SuperArray{
     return true;
   }
 
+  public String get(int index){
+    if(index >= size || index < 0){
+      return null;
+    }else{
+      return data[index];
+    }
+  }
 }
