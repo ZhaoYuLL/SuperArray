@@ -24,4 +24,14 @@ public class SuperArray{
       return data[index];
     }
   }
+
+  public String set(int index, String element){
+    if(index >= size || index < 0){
+      return null;
+    }else{
+      String replaced = data[index];
+      data[index] = element;
+      return replaced;
+    }
+  }
 }
