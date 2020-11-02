@@ -51,8 +51,8 @@ public class SuperArray{
 		for (int i = 0; i < size; i++){
 		    result += data[i] + " ";
 		    result += "]";
-  }
+      }
 		return result;
 	}
-  
+
 }
