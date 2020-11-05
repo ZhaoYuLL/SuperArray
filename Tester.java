@@ -13,14 +13,14 @@ public class Tester{
     a.add("one");
     a.add("one");
     a.add("one");
-    a.add("one");
+    a.add("2");
     a.add("one");
     a.add("two");
     System.out.println(a);
     System.out.println(a.contains("2"));
-    a.clear();
+    a.add(2,"3");
     System.out.println(a);
-
+    System.out.println(a.size());
   }
   //   System.out.println("SuperArray Tester");
   //   boolean failure = false;
