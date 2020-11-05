@@ -21,6 +21,8 @@ public class Tester{
     a.add(2,"3");
     System.out.println(a);
     System.out.println(a.size());
+    System.out.println(a.remove(2));
+    System.out.println(a);
   }
   //   System.out.println("SuperArray Tester");
   //   boolean failure = false;

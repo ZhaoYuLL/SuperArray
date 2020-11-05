@@ -86,16 +86,11 @@ public class SuperArray{
     if(index > data.length){
       resize();
     }
-    String[] temp = new String[size+1];
-    for(int i = 0; i < index; i ++){
-      temp[i] = data[i];
+    for(int i = size; i > index; i --){
+      data[i] = data[i-1];
     }
-    temp[index]=element;
-    for(int i = index+1; i < size; i ++){
-      temp[i]=data[i];
-    }
+    data[index] = element;
     size++;
-    data = temp;
   }
 
   public String remove(int index){
