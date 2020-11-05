@@ -46,13 +46,47 @@ public class SuperArray{
     data = newData;
   }
 
-  public String toString() {
-		String result = "[ ";
-		for (int i = 0; i < size; i++){
-		    result += data[i] + " ";
-		    result += "]";
+  public boolean isEmpty(){
+    return size == 0;
+  }
+  public void clear(){
+    String[] temp = {};
+    data = temp;
+    size = 0;
+  }
+
+  public String toString(){
+    if(size==0){
+      return "empty array";
+    }
+    String result="[";
+    for (int i=0; i<size-1;i++){
+      result += data[i] + ", ";
+    }
+    result +=data[size-1]+ "]";
+
+    return result;
+  }
+
+  public boolean contains(String s){
+    for(int i = 0; i < data.length; i ++){
+      if(data[i]==s){
+        return true;
       }
-		return result;
-	}
+    }
+    return false;
+  }
+
+  public SuperArray(int initialCapacity){
+    data = new String[initialCapacity];
+    size = 0;
+  }
+
+  public void add(int index, String element){
+    String[] temp = new String[data.length];
+    for(int i = 0; i < index && i < data.length; i ++){
+
+    }
+  }
 
 }
