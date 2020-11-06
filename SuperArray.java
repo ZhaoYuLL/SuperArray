@@ -57,20 +57,26 @@ public class SuperArray{
 
   public String toString(){
     if(size==0){
-      return "empty array";
+      return "[]";
     }
     String result="[";
     for (int i=0; i<size-1;i++){
+      if(data[i] != null){
       result += data[i] + ", ";
     }
-    result +=data[size-1]+ "]";
-
-    return result;
+    }
+    if(data[size-1] != null){
+    result += data[size-1];
+  }
+    return result + "]";
   }
 
   public boolean contains(String s){
+    if(size==0){
+      return false;
+    }
     for(int i = 0; i < size; i ++){
-      if(data[i]==s){
+      if(data[i]!=null && data[i].equals(s)){
         return true;
       }
     }
@@ -83,24 +89,47 @@ public class SuperArray{
   }
 
   public void add(int index, String element){
-    if(index > data.length){
-      resize();
+    String[] output = new String[size+1];
+    for(int i = 0; i < size + 1; i ++){
+      if(i == index){
+        output[i] = element;
+      }else{
+        output[i+1]=data[i];
+      }
     }
-    for(int i = size; i > index; i --){
-      data[i] = data[i-1];
-    }
-    data[index] = element;
     size++;
+    data = output;
   }
 
   public String remove(int index){
-    String[] temp = new String[size-1];
-    String replaced = data[index];
-    for(int i = index; i < size -1; i ++){
-      data[i]=data[i+1];
+    String old = data[index];
+    if (size>0){
+      for (int i = index; i < size-1; i++){
+         data[i] = data[i+1 ];
+       }
+      data[size - 1] = null;
+      size--;
+
     }
-    size--;
-    return replaced;
+    return old;
   }
 
+  public int indexOf(String s){
+    int position = -1;
+    for(int i = 0; i < size; i ++){
+      if(data[i] == s){
+        position = i;
+        return position;
+      }
+    }
+    return position;
+  }
+  //need to test this
+  public String[] toArray(){
+    String[] safe = new String[size];
+    for(int i = 0; i < size; i ++){
+      safe[i]=data[i];
+    }
+    return safe;
+  }
 }
