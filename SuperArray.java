@@ -99,10 +99,10 @@ public class SuperArray{
   public String remove(int index){
     String old = data[index];
     if (size>0){
-      for (int i = index; i < size-1; i++){
+      for (int i = index; i < size()-1; i++){
          data[i] = data[i+1 ];
        }
-      data[size - 1] = null;
+      // data[size - 1] = null;
       size--;
 
     }
