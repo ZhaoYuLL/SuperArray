@@ -10,7 +10,7 @@ public class Demo{
     public static SuperArray findOverlap(SuperArray a, SuperArray b){
       SuperArray output = new SuperArray();
       for(int i = 0; i < a.size(); i ++){
-          if(b.contains(a.get(i))==true){
+          if(b.contains(a.get(i))){
             output.add(a.get(i));
           }
       }
