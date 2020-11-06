@@ -127,4 +127,16 @@ public class SuperArray{
     }
     return safe;
   }
-}
+
+  public int lastIndexOf(String value){
+    int position = -1;
+    for(int i = size()-1; i >= 0; i --){
+      if(data[i].equals(value)){
+        position = i;
+        return position;
+      }
+    }
+    return position;
+  }
+
+  }
