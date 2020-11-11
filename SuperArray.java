@@ -22,7 +22,7 @@ public class SuperArray{
 
   public String get(int index){
     if(index >= size || index < 0){
-      return null;
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }else{
       return data[index];
     }
@@ -30,7 +30,7 @@ public class SuperArray{
 
   public String set(int index, String element){
     if(index >= size || index < 0){
-      return null;
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }else{
       String replaced = data[index];
       data[index] = element;
@@ -84,11 +84,17 @@ public class SuperArray{
   }
 
   public SuperArray(int initialCapacity){
+    if(initialCapacity < 0){
+      throw new IllegalArgumentException("initialCapacity " + initialCapacity + " cannot be negative");
+    }
     data = new String[initialCapacity];
     size = 0;
   }
 
   public void add(int index, String element){
+    if(index >= size || index < 0){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+    }
     for(int i = size; i > index;i--){
       data[i] = data[i-1];
     }
@@ -144,11 +150,13 @@ public class SuperArray{
       return false;
     }
     for(int i = 0; i < size(); i ++){
-      if(data[i]!=other.get(i)){
+      if(!data[i].equals(other.get(i))){
         return false;
       }
     }
     return true;
   }
+
+
 
   }
