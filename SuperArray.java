@@ -92,14 +92,21 @@ public class SuperArray{
   }
 
   public void add(int index, String element){
-    if(index >= size || index < 0){
+    if(index < 0 || index > size()){
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }
-    for(int i = size; i > index;i--){
-      data[i] = data[i-1];
+    if(size()==index){
+      add(element);
+    }else{
+      if(size == data.length){
+        resize();
+      }for(int i = size; i > index;i--){
+        data[i] = data[i-1];
+      }
+      data[index] = element;
+      size++;
     }
-    data[index] = element;
-    size++;
+
   }
 
   public String remove(int index){
